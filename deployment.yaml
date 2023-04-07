@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app
+  name: java-app
   labels:
-    app: node-app
+    app: java-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-app
+      app: java-app
   template:
     metadata:
       labels:
-        app: node-app
+        app: java-app
     spec:
       containers:
-        - name: node-app
-          image: nanajanashia/demo-app:node-1.0
+        - name: java-app
+          image: ayanfeacrr.azurecr.io/node-app:1.0
           imagePullPolicy: Always
           ports:
-            - containerPort: 3000
-      imagePullSecrets:
-        - name: myregistrysecret
+            - containerPort: 8080
